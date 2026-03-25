@@ -383,7 +383,7 @@
         <h1 class="hero-title">V. Shyam Sundar</h1>
         <p class="body-font" style="font-size: 1.3rem; color: var(--gold); font-weight: 600; margin: 1rem 0 0.5rem;">Programmer Analyst @ Cognizant</p>
         <p class="body-font" style="font-size: 1rem; color: #ccc; margin-bottom: 1.5rem;">Databricks Certified | Claude AI Architect | Data Engineer</p>
-        <p class="body-font" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">Data engineer and AI architect with 7+ months of industry experience at Cognizant. Specializing in Databricks, AI architecture, and building scalable data pipelines that drive business intelligence.</p>
+        <p class="body-font" id="experience-text" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">Loading experience...</p>
         <a href="#contact" class="btn-outline">Connect with me →</a>
       </div>
       <div style="flex: 1; min-width: 280px; text-align: center;">
@@ -400,7 +400,7 @@
       <h2 class="section-title">About Me</h2>
       <div class="grid-2cols">
         <div>
-          <p class="body-font" style="font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.6;">I'm a passionate programmer and data engineer currently working as a Programmer Analyst at Cognizant, where I've spent the last 7 months building robust data solutions and AI-powered applications.</p>
+          <p class="body-font" style="font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.6;">I'm a passionate programmer and data engineer currently working as a Programmer Analyst at Cognizant, where I've spent <span id="experience-duration"></span> building robust data solutions and AI-powered applications.</p>
           <p class="body-font" style="margin-bottom: 1.5rem; line-height: 1.6;">With expertise in Databricks Data Engineering and Claude AI architecture, I transform complex data challenges into scalable, intelligent systems. My journey from college projects to enterprise solutions has been driven by a deep fascination with how data and AI can reshape industries.</p>
           <p class="body-font" style="line-height: 1.6;">I'm particularly focused on building efficient data pipelines, architecting AI solutions, and contributing to open-source projects that make technology more accessible.</p>
         </div>
@@ -440,7 +440,7 @@
           <div class="company-logo">Cognizant</div>
           <div class="role">Programmer Analyst Trainee</div>
           <div class="date-location">📍 Chennai, Tamil Nadu, India · Full-time</div>
-          <div class="date-location">📅 1 yr 1 mo (Current)</div>
+          <div class="date-location" id="cognizant-duration">📅 Loading...</div>
           <p style="margin-top: 1rem; line-height: 1.6;">Working on enterprise data solutions, building scalable ETL pipelines, and implementing AI-driven analytics. Specializing in Databricks platform and data engineering best practices.</p>
         </div>
         
@@ -526,7 +526,83 @@
 </section>
 
 <script>
-  // Lazy loading for sections only
+  // Function to calculate experience from March 2025
+  function calculateExperience() {
+    const startDate = new Date(2025, 2, 1); // March 1, 2025 (month is 0-indexed, so 2 = March)
+    const currentDate = new Date();
+    
+    let years = currentDate.getFullYear() - startDate.getFullYear();
+    let months = currentDate.getMonth() - startDate.getMonth();
+    
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+    
+    // Calculate total months for display
+    const totalMonths = (years * 12) + months;
+    
+    // Format the duration string
+    let durationText = '';
+    if (years >= 1) {
+      durationText = `${years} yr${years > 1 ? 's' : ''}`;
+      if (months > 0) {
+        durationText += ` ${months} mo${months > 1 ? 's' : ''}`;
+      }
+    } else {
+      durationText = `${months} mo${months > 1 ? 's' : ''}`;
+    }
+    
+    // Format the experience description
+    let experienceDesc = '';
+    if (years >= 2) {
+      experienceDesc = `Data engineer and AI architect with ${years}+ years of industry experience at Cognizant. Specializing in Databricks, AI architecture, and building scalable data pipelines that drive business intelligence.`;
+    } else if (years >= 1) {
+      experienceDesc = `Data engineer and AI architect with 1+ year of industry experience at Cognizant. Specializing in Databricks, AI architecture, and building scalable data pipelines that drive business intelligence.`;
+    } else {
+      experienceDesc = `Data engineer and AI architect with ${totalMonths}+ months of industry experience at Cognizant. Specializing in Databricks, AI architecture, and building scalable data pipelines that drive business intelligence.`;
+    }
+    
+    return {
+      duration: durationText,
+      description: experienceDesc,
+      years: years,
+      months: months,
+      totalMonths: totalMonths
+    };
+  }
+  
+  // Function to update all dynamic content
+  function updateDynamicContent() {
+    const experience = calculateExperience();
+    
+    // Update hero section experience text
+    const heroText = document.getElementById('experience-text');
+    if (heroText) {
+      heroText.textContent = experience.description;
+    }
+    
+    // Update about section duration
+    const aboutDuration = document.getElementById('experience-duration');
+    if (aboutDuration) {
+      aboutDuration.textContent = experience.duration;
+    }
+    
+    // Update Cognizant duration in experience card
+    const cognizantDuration = document.getElementById('cognizant-duration');
+    if (cognizantDuration) {
+      cognizantDuration.innerHTML = `📅 ${experience.duration} (Current)`;
+    }
+  }
+  
+  // Run immediately
+  updateDynamicContent();
+  
+  // Optional: Update every day to keep it fresh (though not necessary as months change slowly)
+  // But we'll update every hour just in case someone keeps the page open
+  setInterval(updateDynamicContent, 3600000); // Update every hour
+  
+  // Lazy loading for sections
   const lazySections = document.querySelectorAll('.lazy-section');
   
   const sectionObserver = new IntersectionObserver((entries) => {
