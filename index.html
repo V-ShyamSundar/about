@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Shyam Sundar — Code Creator</title>
-  <meta name="description" content="Portfolio of V Shyam Sundar — programmer, coder, AI enthusiast.">
-  <meta property="og:title" content="Shyam Sundar">
-  <meta property="og:description" content="Portfolio about V Shyam Sundar">
+  <title>Shyam Sundar — Programmer Analyst @ Cognizant</title>
+  <meta name="description" content="Portfolio of V Shyam Sundar — Programmer Analyst at Cognizant, Databricks Certified Data Engineer, AI Architect">
+  <meta property="og:title" content="Shyam Sundar | Data Engineer & AI Architect">
+  <meta property="og:description" content="Portfolio — Programmer Analyst at Cognizant, Databricks certified, Claude AI architect">
+  <meta property="og:image" content="https://shyam-sundar.my.canva.site/about/382e85e634b414db6a6a61ef03f70616.png">
   <meta name="twitter:card" content="summary_large_image">
   <style>
     * {
@@ -20,6 +21,7 @@
       --text-light: #ffffff;
       --accent-glow: rgba(255, 255, 255, 0.05);
       --gold: #FFB514;
+      --cognizant-blue: #1a5c9e;
     }
 
     html {
@@ -32,11 +34,10 @@
       font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
       background: var(--bg-dark);
       color: var(--text-light);
-      line-height: 1.4;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Typography (matching original fonts) */
     @font-face {
       font-family: 'YADK4LSvvyE-0';
       src: url('fonts/1c0556dd4544e7d0bc192e095918ecfb.woff2') format('woff2');
@@ -61,7 +62,6 @@
       font-family: 'YAFdJt8dAY0-0', sans-serif;
     }
 
-    /* Reusable layout utilities */
     .section-grid {
       display: grid;
       grid-template-columns: auto min(100rem, 100%) auto;
@@ -70,26 +70,21 @@
       overflow: hidden;
       margin-top: -1px;
     }
+    
     .bg-black-gradient {
       background: radial-gradient(circle at 30% 20%, #0a0a0a, #000);
       position: absolute;
       inset: 0;
       z-index: 0;
     }
-    .bg-texture {
-      background-image: url('images/ae006a60d3b66849329c74921a5a7735.svg');
-      background-repeat: repeat;
-      opacity: 0.64;
-      mix-blend-mode: overlay;
-      pointer-events: none;
-    }
+    
     .container-center {
       grid-column: 2 / 3;
       position: relative;
       z-index: 2;
+      padding: 4rem 1rem;
     }
 
-    /* Navigation */
     nav {
       position: sticky;
       top: 0;
@@ -102,11 +97,13 @@
       z-index: 100;
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
+    
     .nav-menu {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       list-style: none;
     }
+    
     .nav-menu a {
       font-family: 'YAFdJt8dAY0-0', sans-serif;
       font-weight: 700;
@@ -116,242 +113,316 @@
       padding: 0.5rem 0;
       transition: opacity 0.2s;
     }
+    
     .nav-menu a:hover { opacity: 0.7; }
 
-    /* Hero / sections common */
     .hero-title {
       font-size: clamp(3rem, 8vw, 5rem);
       line-height: 1;
       text-transform: uppercase;
       font-weight: 700;
     }
+    
     .section-title {
       font-size: clamp(2rem, 5vw, 3.5rem);
       text-transform: uppercase;
       letter-spacing: -0.01em;
+      margin-bottom: 2rem;
     }
-    .card-glow {
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(2px);
-      border-radius: 2rem;
+    
+    .experience-card, .cert-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 1.5rem;
       padding: 1.5rem;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
-    .flex-row {
+    
+    .experience-card:hover, .cert-card:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-4px);
+    }
+    
+    .company-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    
+    .role {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+    
+    .date-location {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+    
+    .cert-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .social-links {
       display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
       flex-wrap: wrap;
-      gap: 2rem;
+    }
+    
+    .social-link {
+      display: inline-flex;
       align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 40px;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      font-weight: 500;
     }
-    img, svg {
-      max-width: 100%;
-      display: block;
+    
+    .social-link:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
     }
-    .grid-overlay {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1rem;
+    
+    .interest-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      margin: 0.25rem;
+      font-size: 0.9rem;
     }
+    
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
       .nav-menu { gap: 1rem; }
+      .container-center { padding: 2rem 1rem; }
+      .social-link { padding: 0.5rem 1rem; font-size: 0.9rem; }
     }
-    /* animations */
+    
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(12px);}
       100% { opacity: 1; transform: translateY(0);}
     }
+    
     .animate-fade {
       animation: fadeIn 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
     }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.3s; }
-    .delay-3 { animation-delay: 0.5s; }
+    
+    .grid-2cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .btn-outline {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+    
+    .btn-outline:hover {
+      background: white;
+      color: black;
+      border-color: white;
+    }
   </style>
 </head>
 <body>
 
-<!-- Navigation -->
 <nav>
   <ul class="nav-menu">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#odyssey">Odyssey</a></li>
-    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certificates">Certificates</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ========== HERO SECTION ========== -->
+<!-- HERO SECTION -->
 <section id="home" class="section-grid" style="min-height: 90vh;">
   <div class="bg-black-gradient"></div>
-  <div class="container-center" style="display: flex; flex-direction: column; justify-content: center; min-height: 85vh; padding: 2rem 0;">
-    <!-- main text block -->
+  <div class="container-center" style="display: flex; flex-direction: column; justify-content: center; min-height: 85vh;">
     <div class="animate-fade">
       <h1 class="hero-title display-font" style="color: white;">V. Shyam Sundar</h1>
-      <div style="margin-top: 1.5rem; max-width: 600px;">
-        <p class="body-font" style="font-size: 1.2rem; color: #ccc; line-height: 1.4;">Code Creator · Programmer · AI & Cybersecurity Explorer</p>
+      <div style="margin-top: 1rem;">
+        <p class="body-font" style="font-size: 1.3rem; color: var(--gold); font-weight: 600;">Programmer Analyst @ Cognizant</p>
+        <p class="body-font" style="font-size: 1rem; color: #ccc; margin-top: 0.5rem;">Databricks Certified | Claude AI Architect | Data Engineer</p>
       </div>
-    </div>
-    <!-- decorative images + overlay similar to original layout -->
-    <div style="position: relative; margin-top: 3rem;">
-      <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center;">
-        <div class="animate-fade delay-1" style="max-width: 280px;">
-          <img src="images/c82f90cf3e1ef0d573dee27aa3b89016.jpg" alt="profile vision" style="border-radius: 24px; width: 100%; box-shadow: 0 20px 35px -12px black;" loading="lazy">
-        </div>
-        <div class="animate-fade delay-2" style="background: rgba(0,0,0,0.6); padding: 1.8rem; border-radius: 2rem; max-width: 400px;">
-          <p class="body-font" style="font-size: 1rem; line-height: 1.5;">I'm a programmer specializing in software development, though I often refer to myself simply as a coder since every project I tackle begins with lines of code.</p>
-          <div style="margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem;">
-            <span class="body-font" style="font-weight: bold;">✦ Code Creator</span>
-          </div>
-        </div>
+      <div style="margin-top: 2rem; max-width: 600px;">
+        <p class="body-font" style="font-size: 1.1rem; line-height: 1.5;">Data engineer and AI architect with 7+ months of industry experience at Cognizant. Specializing in Databricks, AI architecture, and building scalable data pipelines that drive business intelligence.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== ABOUT SECTION ========== -->
-<section id="about" class="section-grid" style="background: black;">
-  <div class="bg-black-gradient" style="opacity: 0.9;"></div>
-  <div class="container-center" style="padding: 5rem 1rem;">
-    <div class="animate-fade">
-      <h2 class="section-title display-font" style="color: white;">About Me</h2>
-      <div class="flex-row" style="margin-top: 2rem;">
-        <div style="flex: 1; min-width: 240px;">
-          <img src="images/a6bd3d9dcc68ad86744967e68b02f6e3.jpg" alt="about visual" style="border-radius: 32px; width: 100%;" loading="lazy">
-        </div>
-        <div style="flex: 2;">
-          <p class="body-font" style="font-size: 1.1rem; line-height: 1.5; margin-bottom: 1rem;">I've always been captivated by the dynamic realm of technology, continually exploring its boundless potential. Recently, I've found my true passion in programming, where the intricate nuances of languages fuel my creativity and drive to turn concepts into reality.</p>
-          <p class="body-font" style="margin: 1rem 0;">While I've contributed to diverse projects, my ultimate ambition is to craft an entire software suite from inception to execution, showcasing the full extent of my skills and vision.</p>
-          <p class="body-font">With a particular focus on Artificial Intelligence and Cybersecurity, I am dedicated to mastering these cutting-edge fields and leveraging their transformative potential to create innovative solutions for tomorrow's challenges.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== ODYSSEY (Background & Education / Interests) ========== -->
-<section id="odyssey" class="section-grid">
-  <div class="bg-black-gradient"></div>
-  <div class="container-center" style="padding: 4rem 1rem;">
-    <div class="animate-fade">
-      <h2 class="section-title display-font">My Technological Odyssey</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3rem;">
-        <!-- Interests block -->
-        <div style="background: rgba(255,255,255,0.03); border-radius: 2rem; padding: 1.5rem;">
-          <h3 class="display-font" style="font-size: 1.8rem; border-left: 3px solid white; padding-left: 1rem;">Interests</h3>
-          <ul class="body-font" style="margin-top: 1.5rem; list-style: none;">
-            <li style="margin: 0.8rem 0;">✦ Video Games</li>
-            <li style="margin: 0.8rem 0;">✦ Game Development</li>
-            <li style="margin: 0.8rem 0;">✦ Quantum Computing</li>
-            <li style="margin: 0.8rem 0;">✦ New Technologies</li>
-          </ul>
-        </div>
-        <!-- Education block -->
-        <div style="background: rgba(255,255,255,0.03); border-radius: 2rem; padding: 1.5rem;">
-          <h3 class="display-font" style="font-size: 1.8rem; border-left: 3px solid white; padding-left: 1rem;">Education</h3>
-          <div class="body-font" style="margin-top: 1rem;">
-            <p><strong>SSLC:</strong> Bhaktavatsalam Vidyashram — 64.60%</p>
-            <p style="margin-top: 0.8rem;"><strong>HSC:</strong> Bhaktavatsalam Vidyashram — 78%</p>
-            <p style="margin-top: 0.8rem;"><strong>B.Tech IT (Honours) in AI:</strong> Vel Tech Multi Tech — CGPA 8.55</p>
-          </div>
-        </div>
-        <!-- Internship block -->
-        <div style="background: rgba(255,255,255,0.03); border-radius: 2rem; padding: 1.5rem;">
-          <h3 class="display-font" style="font-size: 1.8rem; border-left: 3px solid white; padding-left: 1rem;">Internship</h3>
-          <div class="body-font" style="margin-top: 1rem;">
-            <p>National Small Industries Corporation — Raspberry Pi Developer Intern</p>
-            <p style="margin-top: 0.5rem;">Duration: 2 Weeks</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== GALLERY (Code Creations) ========== -->
-<section id="gallery" class="section-grid" style="background: black;">
-  <div class="container-center" style="padding: 4rem 1rem;">
-    <div class="animate-fade">
-      <h2 class="section-title display-font" style="text-align: center;">My Code Creations</h2>
-      <div style="display: flex; flex-direction: column; gap: 3rem; margin-top: 3rem;">
-        <!-- project 1 -->
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; background: rgba(255,255,255,0.02); border-radius: 2rem; padding: 1.8rem;">
-          <div style="flex: 1; min-width: 180px; text-align: center;">
-            <div style="font-size: 3rem; font-weight: bold; color: var(--gold);">01</div>
-          </div>
-          <div style="flex: 3;">
-            <h3 class="display-font" style="font-size: 1.8rem;">Intelligent Tic-Tac-Toe Opponent</h3>
-            <p class="body-font" style="margin-top: 0.5rem;">The "Intelligent Tic Tac Toe Opponent" project is a Python program designed to provide a challenging and interactive experience for players of the classic game Tic Tac Toe. This program goes beyond traditional implementations by incorporating artificial intelligence (AI) techniques to create an opponent that adapts its strategy based on the current game state.</p>
-          </div>
-        </div>
-        <!-- project 2 -->
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; background: rgba(255,255,255,0.02); border-radius: 2rem; padding: 1.8rem;">
-          <div style="flex: 1; min-width: 180px; text-align: center;">
-            <div style="font-size: 3rem; font-weight: bold; color: var(--gold);">02</div>
-          </div>
-          <div style="flex: 3;">
-            <h3 class="display-font" style="font-size: 1.8rem;">Multi-Layer Input CDSS for Breast Cancer</h3>
-            <p class="body-font" style="margin-top: 0.5rem;">A novel Multi-Layer Input approach to improve Clinical Decision Support Systems (CDSS) for breast cancer. By integrating diverse data types from various sources (the "multi-layer input"), the aim is to provide more comprehensive and accurate support for both diagnosing breast cancer and guiding treatment decisions. This enhanced data integration is expected to lead to more precise and personalized recommendations.</p>
-          </div>
-        </div>
-        <!-- additional image from original (Binary Matrix illustration) -->
-        <div style="display: flex; justify-content: center; margin-top: 1rem;">
-          <img src="images/0836fe037cadc9d1753b9c8532adb587.svg" alt="binary matrix" style="max-width: 300px; opacity: 0.7;" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== TEACHING / EMPOWERMENT SECTION (original 'When I'm in front of eager minds') ========== -->
-<section id="page-5" class="section-grid">
-  <div class="bg-black-gradient"></div>
-  <div class="container-center" style="padding: 5rem 1rem; text-align: center;">
-    <div class="animate-fade">
-      <p class="display-font" style="font-size: clamp(1.6rem, 5vw, 2.8rem); max-width: 900px; margin: 0 auto;">When I'm in front of eager minds, sharing knowledge and igniting creativity, I feel empowered.</p>
       <div style="margin-top: 2rem;">
-        <img src="images/2fac3ea7a7d11917de7d4665a7552939.jpg" alt="teaching moment" style="border-radius: 32px; max-width: 100%; width: 500px; box-shadow: 0 20px 30px -10px black;" loading="lazy">
+        <a href="#contact" class="btn-outline">Connect with me →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== CONTACT SECTION ========== -->
+<!-- ABOUT SECTION -->
+<section id="about" class="section-grid">
+  <div class="bg-black-gradient"></div>
+  <div class="container-center">
+    <div class="animate-fade">
+      <h2 class="section-title display-font">About Me</h2>
+      <div class="grid-2cols">
+        <div>
+          <p class="body-font" style="font-size: 1.05rem; margin-bottom: 1rem;">I'm a passionate programmer and data engineer currently working as a Programmer Analyst at Cognizant, where I've spent the last 7 months building robust data solutions and AI-powered applications.</p>
+          <p class="body-font" style="margin-bottom: 1rem;">With expertise in Databricks Data Engineering and Claude AI architecture, I transform complex data challenges into scalable, intelligent systems. My journey from college projects to enterprise solutions has been driven by a deep fascination with how data and AI can reshape industries.</p>
+          <p class="body-font">I'm particularly focused on building efficient data pipelines, architecting AI solutions, and contributing to open-source projects that make technology more accessible.</p>
+        </div>
+        <div>
+          <div style="background: rgba(255,255,255,0.03); border-radius: 1.5rem; padding: 1.5rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">✦ Core Expertise</h3>
+            <div>
+              <span class="interest-tag">Databricks</span>
+              <span class="interest-tag">Data Engineering</span>
+              <span class="interest-tag">AI Architecture</span>
+              <span class="interest-tag">Python</span>
+              <span class="interest-tag">SQL</span>
+              <span class="interest-tag">Apache Spark</span>
+              <span class="interest-tag">Claude AI</span>
+              <span class="interest-tag">ETL Pipelines</span>
+            </div>
+            <h3 style="font-size: 1.3rem; margin: 1.5rem 0 1rem;">✦ Interests</h3>
+            <div>
+              <span class="interest-tag">🎮 Video Games</span>
+              <span class="interest-tag">🤖 AI Architecture</span>
+              <span class="interest-tag">📊 Data Pipelines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="section-grid">
+  <div class="bg-black-gradient"></div>
+  <div class="container-center">
+    <div class="animate-fade">
+      <h2 class="section-title display-font">Work Experience</h2>
+      <div class="grid-2cols">
+        <!-- Cognizant -->
+        <div class="experience-card">
+          <div class="company-logo">Cognizant</div>
+          <div class="role">Programmer Analyst Trainee</div>
+          <div class="date-location">📍 Chennai, Tamil Nadu, India · Full-time</div>
+          <div class="date-location">📅 1 yr 1 mo (Current)</div>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem;">Working on enterprise data solutions, building scalable ETL pipelines, and implementing AI-driven analytics. Specializing in Databricks platform and data engineering best practices.</p>
+        </div>
+        
+        <!-- NSIC Internship -->
+        <div class="experience-card">
+          <div class="company-logo">National Small Industries Corp (NSIC)</div>
+          <div class="role">Cybersecurity Intern</div>
+          <div class="date-location">📍 Chennai, Tamil Nadu, India · On-site</div>
+          <div class="date-location">📅 Feb 2024 · 1 mo</div>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem;">Gained hands-on experience in cybersecurity practices, threat analysis, and security implementation for small-scale industrial applications.</p>
+        </div>
+        
+        <!-- Raspberry Pi Internship -->
+        <div class="experience-card">
+          <div class="company-logo">Raspberry Pi Internship Program</div>
+          <div class="role">Embedded Systems Developer</div>
+          <div class="date-location">📍 Chennai, Tamil Nadu, India · On-site</div>
+          <div class="date-location">📅 Apr 2023 · 1 mo</div>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem;">Developed IoT solutions using Raspberry Pi, implemented sensor integration, and built prototype applications for real-world use cases.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES SECTION (replacing Code Creations) -->
+<section id="certificates" class="section-grid">
+  <div class="bg-black-gradient"></div>
+  <div class="container-center">
+    <div class="animate-fade">
+      <h2 class="section-title display-font">Certifications</h2>
+      <div class="grid-2cols">
+        <!-- Databricks Certification -->
+        <div class="cert-card">
+          <div class="cert-badge">📜 Databricks</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Databricks Data Engineering Certification</h3>
+          <p style="color: #aaa; margin-bottom: 1rem;">Professional certification validating expertise in Databricks platform, Apache Spark, and data engineering best practices.</p>
+          <a href="https://credentials.databricks.com/7bc484ac-a124-47d6-9c24-40ff165edd13#acc.RHDAvtd8" target="_blank" class="btn-outline" style="font-size: 0.85rem;">Verify Certificate →</a>
+        </div>
+        
+        <!-- Claude AI Certification -->
+        <div class="cert-card">
+          <div class="cert-badge">🤖 Claude AI</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Claude AI Architect Certification</h3>
+          <p style="color: #aaa; margin-bottom: 1rem;">Advanced certification in AI architecture, covering Claude AI implementation, prompt engineering, and enterprise AI solutions.</p>
+          <a href="https://verify.skilljar.com/c/tw6qahjmnxav" target="_blank" class="btn-outline" style="font-size: 0.85rem;">Verify Certificate →</a>
+        </div>
+        
+        <!-- Additional placeholder - GitHub Portfolio -->
+        <div class="cert-card">
+          <div class="cert-badge">💻 Portfolio</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">GitHub Projects & Contributions</h3>
+          <p style="color: #aaa; margin-bottom: 1rem;">Explore my open-source contributions, data engineering projects, and AI implementations on GitHub.</p>
+          <a href="https://github.com/V-ShyamSundar" target="_blank" class="btn-outline" style="font-size: 0.85rem;">View GitHub →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
 <section id="contact" class="section-grid">
   <div class="bg-black-gradient"></div>
-  <div class="container-center" style="padding: 4rem 1rem;">
-    <div class="animate-fade" style="max-width: 800px; margin: 0 auto;">
-      <h2 class="section-title display-font" style="text-align: center;">Get in touch</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3rem;">
-        <div style="text-align: center;">
-          <img src="images/0232efe6437a2e46d49ea619a57761d2.svg" alt="email icon" style="width: 48px; margin: 0 auto 1rem;" loading="lazy">
-          <h3 class="body-font" style="font-weight: 700;">Email</h3>
-          <a href="mailto:ssoct2003@gmail.com" style="color: #ccc; text-decoration: none;">ssoct2003@gmail.com</a>
-        </div>
-        <div style="text-align: center;">
-          <img src="images/119252912bf272f4b573548172ac8dcb.svg" alt="phone icon" style="width: 48px; margin: 0 auto 1rem;" loading="lazy">
-          <h3 class="body-font" style="font-weight: 700;">Phone</h3>
-          <a href="tel:+918668123163" style="color: #ccc;">(+91) 8668123163</a>
-        </div>
-        <div style="text-align: center;">
-          <img src="images/10b4fe0cdef31e6c02c14f414eee116e.svg" alt="address icon" style="width: 48px; margin: 0 auto 1rem;" loading="lazy">
-          <h3 class="body-font" style="font-weight: 700;">Address</h3>
-          <p style="color: #ccc;">70/1, East Avenue, Korattur, Chennai - 80</p>
-        </div>
+  <div class="container-center">
+    <div class="animate-fade" style="text-align: center;">
+      <h2 class="section-title display-font">Get In Touch</h2>
+      <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem;">Let's connect! Whether it's about data engineering, AI architecture, or just tech discussions — I'd love to hear from you.</p>
+      
+      <div class="social-links">
+        <a href="https://github.com/V-ShyamSundar" target="_blank" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.205 0 1.59-.015 2.865-.015 3.255 0 .315.225.69.825.57C20.565 21.795 24 17.31 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/v-shyam-sundar/" target="_blank" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.204 0 22.225 0z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://discord.com/users/320966827486478337" target="_blank" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.128 12.308 12.308 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          Discord
+        </a>
       </div>
-      <div style="margin-top: 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
-        <p class="body-font">© V. Shyam Sundar — Portfolio crafted with code & creativity</p>
+      
+      <div style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+        <p class="body-font" style="color: #888; font-size: 0.9rem;">© 2024 V. Shyam Sundar — Programmer Analyst @ Cognizant | Databricks Certified | AI Architect</p>
+        <p class="body-font" style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">Available for collaborations and tech discussions</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Inline fallback: replicate background textures + missing images referenced from original assets (they remain same paths) 
-     we keep same images references so content identical to original -->
-<div style="display: none;">asset mapping keeps original images paths: images/2f4d8b1faecdae3e78adf8fd2c70803b.png, images/ae006a60d3b66849329c74921a5a7735.svg etc. same as original</div>
-
 <script>
-  // simple intersection observer for fade animations on scroll
+  // Intersection Observer for fade animations
   const animatedElements = document.querySelectorAll('.animate-fade');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -362,16 +433,25 @@
       }
     });
   }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+  
   animatedElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
-  // fix any missing background texture simulation if needed
-  window.addEventListener('load', () => {
-    document.body.style.backgroundColor = '#000';
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
 </script>
+
 </body>
 </html>
