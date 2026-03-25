@@ -47,6 +47,33 @@
       color: var(--text-light);
       line-height: 1.5;
       -webkit-font-smoothing: subpixel-antialiased;
+      position: relative;
+    }
+
+    /* SINGLE STATIC BACKGROUND - loads once, covers entire page */
+    .global-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bg-gradient-static {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, #0a0a0a, #000);
+    }
+
+    .bg-texture-static {
+      position: absolute;
+      inset: 0;
+      background-image: url('Shyam Sundar_files/ae006a60d3b66849329c74921a5a7735.svg');
+      background-repeat: repeat;
+      opacity: 0.64;
+      pointer-events: none;
     }
 
     @font-face {
@@ -116,7 +143,7 @@
       color: #cccccc;
     }
 
-    /* Section Styles */
+    /* Section Styles - now without individual backgrounds */
     .section-grid {
       display: grid;
       grid-template-columns: auto min(100rem, 100%) auto;
@@ -124,26 +151,8 @@
       position: relative;
       overflow: hidden;
       margin-top: -1px;
-    }
-
-    .bg-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .bg-gradient {
-      background: radial-gradient(circle at 30% 20%, #0a0a0a, #000);
-    }
-
-    .bg-texture {
-      position: absolute;
-      inset: 0;
-      background-image: url('Shyam Sundar_files/ae006a60d3b66849329c74921a5a7735.svg');
-      background-repeat: repeat;
-      opacity: 0.64;
-      pointer-events: none;
       z-index: 1;
+      background: transparent;
     }
 
     .container-center {
@@ -304,18 +313,7 @@
       filter: brightness(1);
     }
 
-    /* Animations */
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
+    /* Animations - sections fade in as they scroll */
     .lazy-section {
       opacity: 0;
       transform: translateY(40px);
@@ -373,6 +371,12 @@
 </head>
 <body>
 
+<!-- SINGLE STATIC BACKGROUND - loads once, covers entire page -->
+<div class="global-background">
+  <div class="bg-gradient-static"></div>
+  <div class="bg-texture-static"></div>
+</div>
+
 <nav>
   <ul class="nav-menu">
     <li><a href="#home">Home</a></li>
@@ -385,8 +389,6 @@
 
 <!-- HERO SECTION -->
 <section id="home" class="section-grid" style="min-height: 90vh;">
-  <div class="bg-overlay bg-gradient"></div>
-  <div class="bg-overlay bg-texture"></div>
   <div class="container-center" style="display: flex; flex-direction: column; justify-content: center; min-height: 85vh;">
     <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; justify-content: space-between;">
       <div style="flex: 1.5; min-width: 280px;">
@@ -405,8 +407,6 @@
 
 <!-- ABOUT SECTION -->
 <section id="about" class="section-grid lazy-section">
-  <div class="bg-overlay bg-gradient"></div>
-  <div class="bg-overlay bg-texture"></div>
   <div class="container-center">
     <div>
       <h2 class="section-title">About Me</h2>
@@ -444,8 +444,6 @@
 
 <!-- EXPERIENCE SECTION -->
 <section id="experience" class="section-grid lazy-section">
-  <div class="bg-overlay bg-gradient"></div>
-  <div class="bg-overlay bg-texture"></div>
   <div class="container-center">
     <div>
       <h2 class="section-title">Work Experience</h2>
@@ -480,8 +478,6 @@
 
 <!-- CERTIFICATES SECTION -->
 <section id="certificates" class="section-grid lazy-section">
-  <div class="bg-overlay bg-gradient"></div>
-  <div class="bg-overlay bg-texture"></div>
   <div class="container-center">
     <div>
       <h2 class="section-title">Certifications</h2>
@@ -513,8 +509,6 @@
 
 <!-- CONTACT SECTION -->
 <section id="contact" class="section-grid lazy-section">
-  <div class="bg-overlay bg-gradient"></div>
-  <div class="bg-overlay bg-texture"></div>
   <div class="container-center">
     <div style="text-align: center;">
       <h2 class="section-title">Get In Touch</h2>
@@ -544,7 +538,7 @@
 </section>
 
 <script>
-  // Lazy loading with Intersection Observer
+  // Lazy loading with Intersection Observer for sections only
   const lazySections = document.querySelectorAll('.lazy-section');
   
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -571,7 +565,7 @@
     });
   });
   
-  // Hero section animations
+  // Hero section animation
   const heroContent = document.querySelector('#home .container-center > div');
   if (heroContent) {
     heroContent.style.opacity = '0';
