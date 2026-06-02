@@ -1,4 +1,4 @@
-# V. Shyam Sundar — Portfolio
+# V. Shyam Sundar - Portfolio
 
 [![Portfolio Status](https://img.shields.io/badge/portfolio-live-brightgreen)](https://v-shyamsundar.github.io/portfolio)
 [![GitHub last commit](https://img.shields.io/github/last-commit/V-ShyamSundar/about)](https://github.com/V-ShyamSundar/about/commits/main)
