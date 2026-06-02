@@ -9,7 +9,7 @@
 
 ## 🌟 Live Demo
 
-Visit the live portfolio: **[About]([v-shyamsundar.github.io/about/](https://v-shyamsundar.github.io/about/))**
+Visit the live portfolio: **[About](https://v-shyamsundar.github.io/about/)**
 
 ## 📋 About
 
