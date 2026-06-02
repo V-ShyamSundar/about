@@ -68,6 +68,7 @@ portfolio/
 ### Certifications
 - **Databricks Data Engineering Certification** — Professional certification with verification link
 - **Claude AI Architect Certification** — Advanced AI certification with verification link
+- **Databricks Generative AI Engineer Certification** — Associate-level AI certification with verification link
 - **GitHub Projects & Contributions** — Link to open-source repositories
 
 ### Teaching & Knowledge Sharing
